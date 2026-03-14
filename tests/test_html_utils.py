@@ -49,3 +49,7 @@ def test_clean_html_complex_entities_and_tags():
     # html.unescape makes it "<b>Bold</b> & <i>Italic</i>"
     # then tags are removed
     assert clean_html(html_input) == "Bold & Italic"
+
+def test_clean_html_multiline_tags():
+    html_input = '<div\nclass="test">content</div>'
+    assert clean_html(html_input) == "content"
