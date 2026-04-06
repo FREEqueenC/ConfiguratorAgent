@@ -14,7 +14,7 @@ def clean_html(raw_html):
     text = re.sub(r'</p>\s*<p>', '\n\n', text, flags=re.IGNORECASE)
 
     # Remove all remaining HTML tags
-    cleanr = re.compile('<.*?>')
+    cleanr = re.compile('<.*?>', re.DOTALL)
     cleantext = re.sub(cleanr, '', text)
 
     return cleantext.strip()
